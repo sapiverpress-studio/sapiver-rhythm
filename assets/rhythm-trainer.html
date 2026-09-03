@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10142f">
+<title>Sapiver Rhythm</title>
+<style>
+:root{--ink:#11162f;--muted:#667087;--paper:#f5f6fc;--card:#fff;--line:#dce0eb;--purple:#6336d8;--purple-soft:#eee9ff;--left:#2157c7;--left-soft:#e8efff;--right:#ad3e6d;--right-soft:#ffe9f2;--green:#23835a;--amber:#f2b84b}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;overscroll-behavior:none}button,input{font:inherit}button{cursor:pointer}.app{width:min(100%,760px);min-height:100dvh;margin:auto;display:flex;flex-direction:column;padding:calc(env(safe-area-inset-top) + 12px) 14px calc(env(safe-area-inset-bottom) + 12px);gap:12px}.top{display:flex;align-items:center;gap:10px;min-height:48px}.brand{display:flex;align-items:center;gap:9px;min-width:0}.mark{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#172c9c,#8135e8);color:white;font-size:22px}.brand strong{display:block;font-size:17px}.brand small{display:block;color:var(--muted);font-size:12px}.level-button{margin-left:auto;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:10px 12px;font-weight:700}.lesson{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;gap:10px}.lesson-row{display:flex;align-items:flex-start;gap:8px}.lesson h1{font-size:21px;line-height:1.15;margin:0}.lesson p{font-size:14px;line-height:1.35;color:var(--muted);margin:4px 0 0}.tempo{margin-left:auto;display:flex;align-items:center;gap:7px;white-space:nowrap}.tempo output{font-weight:800;font-variant-numeric:tabular-nums}.tempo input{width:88px;accent-color:var(--purple)}.mode{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.mode button{min-height:42px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:11px;font-weight:750}.mode button.active{background:var(--ink);border-color:var(--ink);color:white}.transport{display:flex;gap:8px}.transport button{min-height:48px;border:0;border-radius:12px;font-weight:800}.play{flex:1;background:var(--purple);color:#fff}.stop{width:88px;background:#e8eaf2;color:var(--ink)}.coach{min-height:43px;border-radius:12px;background:var(--purple-soft);padding:10px 12px;display:flex;align-items:center;font-size:14px;line-height:1.3}.stage{flex:1;display:grid;grid-template-rows:1fr 1fr;gap:9px;min-height:268px}.lane{position:relative;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px;display:grid;grid-template-columns:70px 1fr;gap:8px;overflow:hidden}.lane.left{border-color:#c5d4fa}.lane.right{border-color:#f1c2d5}.lane-name{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-weight:850}.lane-name span{font-size:26px}.lane-name small{font-size:11px;color:var(--muted)}.rhythm{display:grid;grid-template-columns:repeat(16,1fr);align-items:center;position:relative;min-width:0}.step{height:72px;position:relative;border-left:1px solid #edf0f6;display:flex;align-items:center;justify-content:center}.step:nth-child(4n+1){border-left:2px solid #aeb5c5}.step.hit::after{content:"";width:16px;height:12px;border-radius:50%;background:var(--ink);transform:rotate(-18deg)}.step.hit::before{content:"";position:absolute;width:2px;height:31px;background:var(--ink);left:calc(50% + 7px);top:16px}.step.sub::after{width:12px;height:9px}.step.rest::after{content:"𝄽";font-size:25px;font-weight:800}.beat-number{position:absolute;bottom:1px;left:3px;font-size:10px;color:#8991a4}.cursor{position:absolute;inset:4px auto 4px 0;width:calc(100% / 16);border-radius:7px;background:rgba(242,184,75,.36);pointer-events:none;transform:translateX(calc(var(--position,0) * 100%));transition:transform 35ms linear}.pad-zone{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:148px}.pad{border:0;border-radius:22px;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;touch-action:none;-webkit-user-select:none;user-select:none;box-shadow:inset 0 -7px 0 rgba(0,0,0,.15);transition:transform 60ms,filter 60ms}.pad.left{background:linear-gradient(145deg,#3472e7,#1744aa)}.pad.right{background:linear-gradient(145deg,#cf5688,#913057)}.pad.down{transform:translateY(4px);filter:brightness(1.22);box-shadow:inset 0 -2px 0 rgba(0,0,0,.15)}.pad strong{font-size:24px}.pad span{font-size:13px;opacity:.86;margin-top:3px}.drawer[hidden]{display:none}.drawer{position:fixed;z-index:10;inset:0;background:rgba(12,16,38,.55);display:flex;align-items:flex-end;justify-content:center}.sheet{width:min(100%,760px);max-height:82dvh;background:var(--paper);border-radius:24px 24px 0 0;padding:18px 14px calc(env(safe-area-inset-bottom) + 18px);overflow:auto}.sheet-head{display:flex;align-items:center}.sheet h2{margin:0;font-size:21px}.close{margin-left:auto;width:44px;height:44px;border:0;border-radius:50%;font-size:24px;background:#e5e7ef}.levels{display:grid;gap:8px;margin-top:14px}.level{width:100%;min-height:62px;text-align:left;border:1px solid var(--line);background:white;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:10px}.level.current{border:2px solid var(--purple);background:var(--purple-soft)}.level.locked{opacity:.48}.level-num{width:35px;height:35px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:white;font-weight:850}.level-copy{display:grid;gap:2px}.level-copy strong{font-size:15px}.level-copy small{color:var(--muted)}@media(max-width:420px){.app{padding-left:10px;padding-right:10px;gap:9px}.lesson{padding:11px}.lesson-row{display:grid;grid-template-columns:1fr auto}.tempo{grid-column:1/-1;margin:0;justify-content:space-between}.tempo input{width:min(52vw,210px)}.stage{min-height:246px}.lane{grid-template-columns:54px 1fr;padding:7px;gap:4px}.lane-name span{font-size:20px}.step{height:63px}.pad-zone{min-height:136px}.pad strong{font-size:21px}}@media(max-height:700px){.app{gap:7px}.lesson p{display:none}.lesson{padding:9px}.coach{min-height:36px;padding:7px 10px}.stage{min-height:214px}.step{height:54px}.pad-zone{min-height:112px}.pad strong{font-size:19px}}
+</style>
+<style>
+.coach{padding:9px 11px;justify-content:space-between;gap:8px}.accuracy,.next-level{flex:0 0 auto;border-radius:999px;background:#fff;padding:5px 8px;font-size:12px;font-variant-numeric:tabular-nums}.next-level{border:0;background:var(--green);color:#fff;font-weight:800}.pad.good{background:#15945f}.pad.bad{background:#d33232}
+.step.hit.quaver::before,.step.hit.semiquaver::before{display:none}.step.hit.quaver::after,.step.hit.semiquaver::after{width:auto;height:auto;border-radius:0;background:none;transform:none;line-height:1}.step.hit.quaver::after{content:"♪";font-size:29px}.step.hit.semiquaver::after{content:"𝅘𝅥𝅯";font-size:27px}.step.rhythm-rest::after{font-size:22px;color:var(--ink)}.step.crotchet-rest::after{content:"𝄽"}.step.quaver-rest::after{content:"𝄾"}.step.semiquaver-rest::after{content:"𝄿"}
+.timing-row{min-height:34px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:12px}.timing-row strong{color:var(--ink)}.timing-row label{display:flex;align-items:center;gap:6px}.timing-row select{min-height:32px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);padding:3px 7px;font-weight:700}
+</style>
+</head>
+<body>
+<div id="boot-check" style="padding:24px;font:700 18px system-ui;background:#f5f6fc;color:#11162f">
+  Loading Sapiver Rhythm...
+</div>
+<script>
+window.addEventListener('error', function (event) {
+  var boot = document.getElementById('boot-check');
+  if (boot) {
+    boot.textContent = 'Sapiver Rhythm could not start: ' + event.message;
+    boot.style.background = '#ffe8e3';
+  }
+});
+</script>
+<main class="app">
+  <header class="top"><div class="brand"><div class="mark">♫</div><div><strong>Sapiver Rhythm</strong><small>Two-hand rhythm trainer</small></div></div><button class="level-button" id="levelButton" type="button">Level 1 of 96</button></header>
+  <section class="lesson" aria-labelledby="lessonTitle"><div class="lesson-row"><div><h1 id="lessonTitle"></h1><p id="lessonText"></p></div><label class="tempo"><input id="tempo" type="range" min="40" max="100" step="2" value="56" aria-label="Tempo"><output id="tempoOut">56 BPM</output></label></div>
+    <div class="mode" role="group" aria-label="Learning mode"><button type="button" data-mode="watch" class="active" aria-pressed="true">Watch</button><button type="button" data-mode="join" aria-pressed="false">Join in</button><button type="button" data-mode="repeat" aria-pressed="false">Repeat</button></div>
+    <div class="timing-row"><strong id="timingBand">Foundation timing</strong><label>Accuracy <select id="timingProfile" aria-label="Timing accuracy"><option value="relaxed">Relaxed</option><option value="standard" selected>Standard</option><option value="precise">Precise</option></select></label></div>
+    <div class="transport"><button class="play" id="play" type="button">▶ Show me</button><button class="stop" id="stop" type="button">Stop</button></div>
+    <div class="coach" aria-live="polite"><span id="coach">Watch both rows. Blue is the left hand and pink is the right hand.</span><strong class="accuracy" id="accuracy" hidden>Accuracy —</strong><button class="next-level" id="nextLevel" type="button" hidden>Next level →</button></div>
+  </section>
+  <section class="stage" aria-label="Two hand rhythms"><div class="lane left"><div class="lane-name"><span>LEFT</span><small id="leftLabel"></small></div><div class="rhythm" id="leftRhythm"></div></div><div class="lane right"><div class="lane-name"><span>RIGHT</span><small id="rightLabel"></small></div><div class="rhythm" id="rightRhythm"></div></div></section>
+  <section class="pad-zone" aria-label="Tapping pads"><button class="pad left" id="leftPad" type="button"><strong>LEFT HAND</strong><span>Tap anywhere here</span></button><button class="pad right" id="rightPad" type="button"><strong>RIGHT HAND</strong><span>Tap anywhere here</span></button></section>
+</main>
+<div class="drawer" id="drawer" hidden><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="levelsTitle"><div class="sheet-head"><h2 id="levelsTitle">Rhythm journey</h2><button type="button" class="close" id="close" aria-label="Close">×</button></div><div class="levels" id="levels"></div></section></div>
+<script>
+(()=>{'use strict';
+const q=[0,4,8,12],e=[0,2,4,6,8,10,12,14];
+const pattern=(name,hits,unit,action)=>({name,hits,unit,action});
+const Q=pattern('Steady crotchets',q,4,'Tap once on each numbered beat.');
+const E=pattern('Flowing quavers',e,2,'Tap twice inside every numbered beat.');
+const targets=[
+ pattern('One quaver space',[0,2,4,8,10,12,14],2,'Leave the second half of beat 2 silent.'),
+ pattern('Late quaver space',[0,2,4,6,8,10,12],2,'Leave the final half-beat silent.'),
+ pattern('Early quaver space',[0,4,6,8,10,12,14],2,'Leave the second half of beat 1 silent.'),
+ pattern('Middle quaver space',[0,2,4,6,8,12,14],2,'Leave the second half of beat 3 silent.'),
+ pattern('Two quaver spaces',[0,2,4,8,10,12],2,'Leave the second halves of beats 2 and 4 silent.'),
+ pattern('Alternating quaver pairs',[0,4,6,8,12,14],2,'Alternate one tap, then two taps, across the bar.'),
+ pattern('Turning quavers',[0,2,6,8,10,14],2,'Move between the beat and the off-beat without stopping.'),
+ pattern('Off-beat quavers',[2,6,10,14],2,'Tap only on each “and”, between the numbered beats.'),
+ pattern('Crossing quavers',[0,6,8,14],2,'Alternate numbered beats with late off-beats.'),
+ pattern('Quaver pickups',[2,4,6,10,12,14],2,'Use off-beats to lead into beats 2 and 4.'),
+ pattern('Open quaver phrase',[0,2,4,8,12,14],2,'Keep the phrase moving around two central spaces.'),
+ pattern('Full semiquavers',[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],1,'Fit four even taps inside every beat.'),
+ pattern('Three then space',[0,1,2,4,5,6,8,9,10,12,13,14],1,'Play three semiquavers, then leave one space.'),
+ pattern('Two around a space',[0,1,3,4,5,7,8,9,11,12,13,15],1,'Keep the first two taps and the final tap of each beat.'),
+ pattern('One then two',[0,2,3,4,6,7,8,10,11,12,14,15],1,'Play one tap, leave a space, then play two.'),
+ pattern('Late semiquavers',[1,2,3,5,6,7,9,10,11,13,14,15],1,'Leave the beat itself silent and enter just after it.'),
+ pattern('Two then quaver',[0,1,2,4,6,7,8,9,10,12,14,15],1,'Alternate two quick taps with a wider quaver shape.'),
+ pattern('Quaver then two',[0,2,3,4,5,6,8,10,11,12,13,14],1,'Reverse the previous shape while keeping the pulse steady.'),
+ pattern('Wide semiquavers',[0,3,4,7,8,11,12,15],1,'Tap the outside edges of each beat.'),
+ pattern('Broken semiquaver flow',[0,1,3,4,6,7,8,9,11,12,14,15],1,'Carry a changing three-note shape through the bar.'),
+ pattern('Alternating semiquaver flow',[0,2,3,5,6,8,10,11,13,14],1,'Alternate short and long spaces without losing the pulse.'),
+ pattern('Syncopated semiquavers',[1,3,4,6,9,11,12,14],1,'Lean across the beat using displaced taps.'),
+ pattern('Independent mixed phrase',[0,1,4,6,7,8,11,12,13,15],1,'Hold an uneven phrase steadily against the other hand.')
+];
+const kindFor=unit=>unit===4?'crotchet':unit===2?'quaver':'semiquaver';
+const restsFor=p=>Array.from({length:16/p.unit},(_,i)=>i*p.unit).filter(n=>!p.hits.includes(n));
+function makeLevel(left,right,title,text,stage){return{title,text,left:left.hits,right:right.hits,leftKind:kindFor(left.unit),rightKind:kindFor(right.unit),leftRests:restsFor(left),rightRests:restsFor(right),ll:left.name.toLowerCase(),rl:right.name.toLowerCase(),stage,leftUnit:left.unit,rightUnit:right.unit}}
+const levels=[
+ makeLevel(Q,Q,'Together on every beat','Both hands tap together once on beats 1, 2, 3 and 4.',0),
+ makeLevel(Q,E,'Right hand plays twice','Keep steady crotchets in the left hand while the right hand plays two quavers in each beat.',1),
+ makeLevel(E,Q,'Switch the hands','The right hand keeps the crotchets while the left hand plays the quavers.',1),
+ makeLevel(E,E,'Quavers together','Both hands play two even quavers inside every beat.',1)
+];
+targets.forEach((p,i)=>{
+ const stage=i+2;
+ levels.push(
+  makeLevel(Q,p,`${p.name} — right hand`,`Keep steady crotchets in the left hand. ${p.action}`,stage),
+  makeLevel(p,Q,`${p.name} — left hand`,`Keep steady crotchets in the right hand. ${p.action}`,stage),
+  makeLevel(E,p,`${p.name} against quavers`,`Keep even quavers in the left hand. ${p.action}`,stage),
+  makeLevel(p,E,`${p.name} — hands switched`,`Keep even quavers in the right hand. ${p.action}`,stage)
+ );
+});
+function validateCurriculum(items){
+ if(items.length!==96)throw new Error(`Curriculum must contain 96 exercises; found ${items.length}`);
+ const seen=new Set();let lastStage=-1;
+ items.forEach((x,index)=>{
+  if(x.stage<lastStage)throw new Error(`Difficulty order failed at exercise ${index+1}`);lastStage=x.stage;
+  ['left','right'].forEach(hand=>{const hits=x[hand];if(!hits.length||new Set(hits).size!==hits.length||hits.some(n=>!Number.isInteger(n)||n<0||n>15))throw new Error(`Invalid ${hand} rhythm at exercise ${index+1}`)});
+  const signature=`${x.leftUnit}:${x.left.join(',')}|${x.rightUnit}:${x.right.join(',')}`;
+  if(seen.has(signature))throw new Error(`Duplicate exercise at ${index+1}`);seen.add(signature);
+ });
+}
+validateCurriculum(levels);
+const $=id=>document.getElementById(id),els={title:$('lessonTitle'),text:$('lessonText'),tempo:$('tempo'),tempoOut:$('tempoOut'),timingBand:$('timingBand'),timingProfile:$('timingProfile'),coach:$('coach'),accuracy:$('accuracy'),nextLevel:$('nextLevel'),play:$('play'),stop:$('stop'),left:$('leftRhythm'),right:$('rightRhythm'),leftPad:$('leftPad'),rightPad:$('rightPad'),leftLabel:$('leftLabel'),rightLabel:$('rightLabel'),levelButton:$('levelButton'),drawer:$('drawer'),levels:$('levels'),close:$('close')};
+let saved={level:0,unlocked:1,bpm:56,timingProfile:'standard'};try{saved={...saved,...JSON.parse(localStorage.getItem('sapiver-rhythm-v3')||'{}')}}catch{}let level=Math.min(levels.length-1,saved.level),unlocked=Math.max(1,saved.unlocked),bpm=saved.bpm||56,timingProfile=['relaxed','standard','precise'].includes(saved.timingProfile)?saved.timingProfile:'standard',mode='watch',running=false,raf=0,startAt=0,countStart=0,lastCount=0,barIndex=0,audio=null,audioExerciseStart=0,nextAudioBar=0,scheduled=new Set(),results={green:0,red:0},claimed={left:new Set(),right:new Set()};
+const persist=()=>{try{localStorage.setItem('sapiver-rhythm-v3',JSON.stringify({level,unlocked,bpm,timingProfile}))}catch{}};
+const timingBands=[{name:'Foundation',crotchet:180,quaver:140,semiquaver:100},{name:'Developing',crotchet:140,quaver:105,semiquaver:75},{name:'Intermediate',crotchet:100,quaver:75,semiquaver:50}],timingFactors={relaxed:1.25,standard:1,precise:.75};
+const bandFor=()=>timingBands[level<32?0:level<64?1:2];
+function toleranceSteps(hand){const kind=levels[level][`${hand}Kind`],stepMs=60000/bpm/4,windowMs=bandFor()[kind]*timingFactors[timingProfile];return Math.min(.7,windowMs/stepMs)}
+function drawLane(el,hits,kind='crotchet',rests=[]){el.innerHTML='<i class="cursor"></i>'+Array.from({length:16},(_,i)=>`<span class="step ${hits.includes(i)?`hit ${kind}`:''} ${hits.includes(i)&&i%4?'sub':''} ${rests.includes(i)?`rhythm-rest ${kind}-rest`:''}">${i%4===0?`<b class="beat-number">${i/4+1}</b>`:''}</span>`).join('')}
+function render(){const x=levels[level];els.title.textContent=x.title;els.text.textContent=x.text;els.leftLabel.textContent=x.ll;els.rightLabel.textContent=x.rl;els.levelButton.textContent=`Level ${level+1} of ${levels.length}`;drawLane(els.left,x.left,x.leftKind,x.leftRests);drawLane(els.right,x.right,x.rightKind,x.rightRests);els.tempo.value=bpm;els.tempoOut.textContent=`${bpm} BPM`;els.timingProfile.value=timingProfile;els.timingBand.textContent=`${bandFor().name} timing`;els.play.textContent=mode==='watch'?'▶ Show me':mode==='join'?'▶ Start together':'▶ Loop pattern';els.accuracy.hidden=mode!=='join';els.nextLevel.hidden=true;document.querySelectorAll('.mode button').forEach(b=>{const active=b.dataset.mode===mode;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});renderLevels();const boot=document.getElementById('boot-check');if(boot)boot.remove()}
+function renderLevels(){els.levels.innerHTML=levels.map((x,i)=>`<button type="button" class="level ${i===level?'current':''} ${i>=unlocked?'locked':''}" data-level="${i}" ${i>=unlocked?'disabled':''}><span class="level-num">${i+1}</span><span class="level-copy"><strong>${x.title}</strong><small>${x.ll} · ${x.rl}</small></span></button>`).join('')}
+function ensureAudio(){if(!audio)audio=new (window.AudioContext||window.webkitAudioContext)();return audio.state==='suspended'?audio.resume():Promise.resolve()}
+function sound(hand,when=0,quiet=false,count=false){ensureAudio();const o=audio.createOscillator(),g=audio.createGain(),t=audio.currentTime+Math.max(0,when);o.type=count?'square':hand==='left'?'triangle':'sine';o.frequency.setValueAtTime(count?880:hand==='left'?155:470,t);g.gain.setValueAtTime(count?(quiet?.07:.14):(quiet?.09:.24),t);g.gain.exponentialRampToValueAtTime(.001,t+(count?.045:.075));o.connect(g).connect(audio.destination);scheduled.add(o);o.onended=()=>scheduled.delete(o);o.start(t);o.stop(t+(count?.05:.08))}
+function updateAccuracy(){const total=results.green+results.red,pct=total?Math.round(results.green/total*100):0;els.accuracy.textContent=total?`${pct}% green`:'Accuracy —';return pct}
+async function begin(){stop();await ensureAudio();running=true;barIndex=0;lastCount=0;results={green:0,red:0};claimed={left:new Set(),right:new Set()};els.accuracy.hidden=mode!=='join';els.nextLevel.hidden=true;updateAccuracy();const beatMs=60000/bpm,countMs=beatMs*4,leadMs=80;countStart=performance.now()+leadMs;startAt=countStart+countMs;audioExerciseStart=audio.currentTime+(leadMs+countMs)/1000;nextAudioBar=0;els.coach.textContent='Get ready — 1';for(let i=0;i<4;i++)sound('left',(leadMs+i*beatMs)/1000,false,true);queueAudio(0);frame()}
+function scheduleBar(bar){const x=levels[level],stepSeconds=60/bpm/4,barSeconds=60/bpm*4,delay=audioExerciseStart+bar*barSeconds-audio.currentTime;if(mode==='watch'||mode==='repeat'){x.left.forEach(n=>sound('left',delay+n*stepSeconds));x.right.forEach(n=>sound('right',delay+n*stepSeconds))}else{q.forEach(n=>sound('left',delay+n*stepSeconds,true,true))}}
+function queueAudio(currentBar){const last=mode==='repeat'?currentBar+2:1;while(nextAudioBar<=last){scheduleBar(nextAudioBar);nextAudioBar++}}
+function scoreMisses(elapsedStep){if(mode!=='join')return;const x=levels[level];['left','right'].forEach(hand=>{const limit=elapsedStep-toleranceSteps(hand);for(let bar=0;bar<2;bar++)x[hand].forEach((n,i)=>{const key=`${bar}:${i}`;if(bar*16+n<limit&&!claimed[hand].has(key)){claimed[hand].add(key);results.red++;updateAccuracy()}})})}
+function frame(){if(!running)return;const barMs=60000/bpm*4,elapsed=performance.now()-startAt;if(elapsed<0){const count=Math.min(4,Math.floor((performance.now()-countStart)/(60000/bpm))+1);if(count!==lastCount){lastCount=count;els.coach.textContent=`Get ready — ${count}`};raf=requestAnimationFrame(frame);return}if(lastCount){lastCount=0;els.coach.textContent=mode==='watch'?'Watch the yellow marker and listen to both hands.':mode==='join'?'Tap the blue and pink pads when their notes meet the marker.':'Keep both rhythms moving. The pattern will repeat.'}scoreMisses(elapsed/(barMs/16));const currentBar=Math.floor(elapsed/barMs),pos=Math.min(15.99,(elapsed%barMs)/barMs*16);queueAudio(currentBar);document.querySelectorAll('.cursor').forEach(c=>c.style.setProperty('--position',pos));if(currentBar>barIndex){barIndex=currentBar;if(mode!=='repeat'&&barIndex>=2){finish();return}}raf=requestAnimationFrame(frame)}
+function stop(){running=false;cancelAnimationFrame(raf);scheduled.forEach(o=>{try{o.stop()}catch{}});scheduled.clear();document.querySelectorAll('.cursor').forEach(c=>c.style.setProperty('--position',0));document.querySelectorAll('.pad').forEach(p=>p.classList.remove('down'))}
+function nearest(hand,absoluteStep){const expected=levels[level][hand];let best=null,d=99;for(let bar=0;bar<2;bar++)expected.forEach((n,i)=>{const key=`${bar}:${i}`,dist=Math.abs(bar*16+n-absoluteStep);if(!claimed[hand].has(key)&&dist<d){d=dist;best=key}});if(best!==null&&d<=toleranceSteps(hand)){claimed[hand].add(best);return true}return false}
+function flash(pad,good){pad.classList.remove('good','bad');pad.classList.add(good?'good':'bad');setTimeout(()=>pad.classList.remove('good','bad'),180)}
+function tap(hand,pointerId){const pad=hand==='left'?els.leftPad:els.rightPad;pad.classList.add('down');pad.setPointerCapture?.(pointerId);sound(hand);if(running&&mode==='join'){const barMs=60000/bpm*4,elapsed=performance.now()-startAt;if(elapsed<0)return;const good=nearest(hand,elapsed/(barMs/16));results[good?'green':'red']++;flash(pad,good);updateAccuracy()}}
+function release(hand){(hand==='left'?els.leftPad:els.rightPad).classList.remove('down')}
+function finish(){if(mode==='join')scoreMisses(99);const pct=updateAccuracy();stop();if(mode==='watch'){els.coach.textContent='Now choose “Join in” and add your hands to the pattern.';return}if(pct>=80){if(level+1>=unlocked)unlocked=Math.min(levels.length,level+2);persist();els.coach.textContent=level===levels.length-1?'Excellent control. Try it at a new speed.':'Ready for the next level.';els.nextLevel.hidden=level===levels.length-1;renderLevels()}else{els.nextLevel.hidden=true;els.coach.textContent=`${pct}% green. Repeat this level and aim for 80% before moving on.`}}
+els.play.addEventListener('click',begin);els.stop.addEventListener('click',()=>{stop();els.coach.textContent='Stopped. Start again whenever you are ready.'});els.tempo.addEventListener('input',e=>{bpm=+e.target.value;els.tempoOut.textContent=`${bpm} BPM`;persist();if(running)begin()});els.timingProfile.addEventListener('change',e=>{timingProfile=e.target.value;persist();if(running)begin();else els.coach.textContent=`Accuracy set to ${e.target.options[e.target.selectedIndex].text}.`});document.querySelectorAll('.mode button').forEach(b=>b.addEventListener('click',()=>{stop();mode=b.dataset.mode;els.coach.textContent=mode==='watch'?'Watch and listen before joining in.':mode==='join'?'The app will guide two bars. Tap both pads when needed.':'The rhythm will continue looping until you stop it.';render()}));
+[['left',els.leftPad],['right',els.rightPad]].forEach(([hand,pad])=>{pad.addEventListener('pointerdown',e=>{e.preventDefault();tap(hand,e.pointerId)});['pointerup','pointercancel','lostpointercapture'].forEach(name=>pad.addEventListener(name,()=>release(hand)))});
+els.levelButton.addEventListener('click',()=>{els.drawer.hidden=false});els.close.addEventListener('click',()=>els.drawer.hidden=true);els.drawer.addEventListener('click',e=>{if(e.target===els.drawer)els.drawer.hidden=true});els.levels.addEventListener('click',e=>{const b=e.target.closest('[data-level]');if(!b)return;level=+b.dataset.level;saved.level=level;persist();stop();render();els.drawer.hidden=true;els.coach.textContent='Watch both rows before joining in.'});
+els.nextLevel.addEventListener('click',()=>{if(level>=levels.length-1)return;level++;persist();stop();render();els.coach.textContent='Watch this new pattern first, then join in.'});
+render();
+})();
+</script>
+</body>
+</html>

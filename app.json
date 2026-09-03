@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Sapiver Rhythm",
+    "slug": "sapiver-rhythm",
+    "owner": "sapiverforge",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "uk.co.sapiverpress.sapiverrhythm",
+      "versionCode": 1,
+      "blockedPermissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "predictiveBackGestureEnabled": true
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#090b25",
+      "barStyle": "light-content",
+      "translucent": false
+    },
+    "web": {
+      "favicon": "./assets/icon.png"
+    }
+  }
+}
