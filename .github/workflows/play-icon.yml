@@ -19,8 +19,8 @@ jobs:
 
       - name: Prepare 512px Play icon
         run: |
-          magick assets/icon.png -resize 512x512! -strip PNG32:play-icon-512.png
-          test "$(identify -format '%wx%h' play-icon-512.png)" = "512x512"
+          ffmpeg -y -i assets/icon.png -vf scale=512:512 -frames:v 1 play-icon-512.png
+          test "$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=s=x:p=0 play-icon-512.png)" = "512x512"
           test "$(stat -c%s play-icon-512.png)" -le 1048576
           file play-icon-512.png
           ls -lh play-icon-512.png
