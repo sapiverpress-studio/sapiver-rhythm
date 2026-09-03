@@ -2,16 +2,9 @@ name: Android preview build
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - .github/workflows/android-preview.yml
-
-permissions:
-  contents: write
 
 jobs:
   build:
-    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Start Android preview build'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -32,25 +25,10 @@ jobs:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Align Expo SDK dependencies
-        run: npx expo install --fix
-
       - name: Validate project
         run: |
           npm run typecheck
           npx expo-doctor
-
-      - name: Save dependency alignment
-        run: |
-          if git diff --quiet -- package.json package-lock.json; then
-            echo "Dependencies already aligned"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json package-lock.json
-          git commit -m "Align dependencies with Expo SDK"
-          git push
 
       - name: Submit Android APK build
         run: eas build --platform android --profile preview --non-interactive --no-wait
