@@ -11,7 +11,13 @@ Prepared: 3 September 2026
 - Category: **Music & Audio**
 - App type: **App**
 - Default language: **English (United Kingdom)**
-- Pricing recommendation for first release: **Free**
+- Pricing: **DECISION REQUIRED before first public release**
+
+### Pricing warning
+
+Do not default Sapiver Rhythm to free without making the monetisation decision deliberately. Google Play currently allows a paid app to be changed to free, but once an app has been offered free it cannot later be changed to paid under the same package name. Charging later would require a new app/package. In-app purchases or subscriptions are a separate monetisation route.
+
+This is therefore a release decision, not a form-filling default.
 
 ## Store listing
 
@@ -91,17 +97,21 @@ For the current release:
 
 If any SDK, analytics, account, cloud-sync, advertising or remote telemetry is added later, the Data safety answers and privacy policy must be reassessed before release.
 
-### Target audience
+### Target audience — DECISION REQUIRED
 
-Recommended current declaration:
+The app itself is age-neutral: it is a general beginner-to-intermediate music-practice tool rather than a children's product. Do not make the Play target-audience selection merely to minimise policy work or maximise reach.
+
+A plausible broad-audience selection is:
 
 - Ages **13–15**
 - Ages **16–17**
 - Ages **18 and over**
 
-Do **not** select ages 12 and under unless Sapiver Rhythm is deliberately redesigned and marketed as a child-directed product and the relevant Google Play Families requirements are reviewed in full.
+However, Google requires developers to consider whether selected age groups are treated as children under applicable local law. Selecting teen groups can therefore create additional Families-policy considerations in some regions.
 
-Reason: the product is a general beginner-to-intermediate music-practice tool, not a children's app. It has no child-specific characters, rewards, social features, ads or account system.
+Do **not** select ages 12 and under unless Sapiver Rhythm is deliberately intended and marketed for those ages and the relevant Google Play Families requirements have been reviewed in full.
+
+Final target-audience selection should be made immediately before the Play declarations are submitted, based on the intended marketed audience.
 
 ### Content rating — expected answers for the current build
 
@@ -173,10 +183,12 @@ The `production` EAS profile is configured for Android App Bundle output.
 
 1. Confirm the privacy-policy URL is publicly live.
 2. Confirm the latest validation workflow is green.
-3. Create Sapiver Rhythm in Google Play Console using package `uk.co.sapiverpress.sapiverrhythm`.
-4. Complete the main store listing and upload the graphics.
-5. Complete Ads, App access, Privacy policy, Target audience, Data safety and Content rating.
-6. Run the manual `Android production AAB` workflow only when an EAS production build is authorised.
-7. Upload the `.aab` to the required Play testing track.
-8. Review Play Console's generated permission and policy warnings before publishing the test release.
-9. If the developer account is subject to Google's new-personal-account testing requirement, maintain at least 12 opted-in closed testers continuously for 14 days before applying for production access.
+3. Decide whether the first public release is free, paid or uses another monetisation model. Do not publish it free by accident.
+4. Decide the intended Play target-audience age groups.
+5. Create Sapiver Rhythm in Google Play Console using package `uk.co.sapiverpress.sapiverrhythm`.
+6. Complete the main store listing and upload the graphics.
+7. Complete Ads, App access, Privacy policy, Target audience, Data safety and Content rating.
+8. Run the manual `Android production AAB` workflow only when an EAS production build is authorised.
+9. Upload the `.aab` to the required Play testing track.
+10. Review Play Console's generated permission and policy warnings before publishing the test release.
+11. If the developer account is subject to Google's new-personal-account testing requirement, maintain at least 12 opted-in closed testers continuously for 14 days before applying for production access.
