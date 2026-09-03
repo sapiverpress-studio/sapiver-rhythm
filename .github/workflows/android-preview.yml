@@ -2,9 +2,13 @@ name: Android preview build
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/android-preview.yml
 
 jobs:
   build:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Start Android preview build'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
