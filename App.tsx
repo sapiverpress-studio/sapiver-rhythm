@@ -1,7 +1,13 @@
 import { Asset } from "expo-asset";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  Linking,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {
   SafeAreaProvider,
   SafeAreaView,
@@ -9,6 +15,36 @@ import {
 import { WebView } from "react-native-webview";
 
 const trainerModule = require("./assets/rhythm-trainer.html");
+const privacyUrl = "https://suite.sapiverpress.co.uk/app/sapiver-rhythm/privacy/";
+
+const privacyLinkScript = `
+(() => {
+  const head = document.querySelector('.sheet-head');
+  const close = document.getElementById('close');
+  if (!head || !close || document.getElementById('sapiverPrivacyLink')) return;
+
+  const button = document.createElement('button');
+  button.id = 'sapiverPrivacyLink';
+  button.type = 'button';
+  button.textContent = 'Privacy';
+  button.setAttribute('aria-label', 'Open Sapiver Rhythm privacy policy');
+  button.style.marginLeft = 'auto';
+  button.style.border = '1px solid #dce0eb';
+  button.style.borderRadius = '999px';
+  button.style.background = '#fff';
+  button.style.color = '#6336d8';
+  button.style.padding = '8px 11px';
+  button.style.fontWeight = '750';
+  close.style.marginLeft = '8px';
+
+  button.addEventListener('click', () => {
+    window.ReactNativeWebView?.postMessage('open-privacy');
+  });
+
+  head.insertBefore(button, close);
+})();
+true;
+`;
 
 export default function App() {
   const [trainerUri, setTrainerUri] = useState<string | null>(null);
@@ -58,6 +94,12 @@ export default function App() {
             bounces={false}
             setSupportMultipleWindows={false}
             androidLayerType="hardware"
+            injectedJavaScript={privacyLinkScript}
+            onMessage={(event) => {
+              if (event.nativeEvent.data === "open-privacy") {
+                void Linking.openURL(privacyUrl).catch(() => undefined);
+              }
+            }}
           />
         ) : (
           <View style={styles.loading}>
